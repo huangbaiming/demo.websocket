@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>测试websocket</body>
+<script type="text/javascript">
+	var webscoket = new WebSocket("ws://localhost:8080/demo.websocket/websocket1.do")
+	webscoket.onopen = function(data) {
+		webscoket.send(1);
+		webscoket.close();
+	}
+
+	webscoket.onmessage = function(data) {
+		console.log(data);
+		debugger
+	}
+	webscoket.onerror = function(data) {
+		console.log(data);
+	}
+	window.onunload = function() {
+		webscoket.close();
+	}
+</script>
+</html>
