@@ -9,21 +9,14 @@
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<websocket:handlers>
-		<websocket:mapping path="/websocket1.do" handler="socketMessageHander" />
+	<bean id="webSocketHandler" class="demo.ws.WebSocketHandlerImpl" />
+
+	<websocket:handlers allowed-origins="*">
+		<websocket:mapping path="/websocket.do" handler="webSocketHandler" />
 		<websocket:handshake-interceptors>
-			<bean class="com.aaa.SocketHandershakeInterceptor" />
+			<bean class="demo.ws.HandshakeInterceptorImpl">
+			</bean>
 		</websocket:handshake-interceptors>
 	</websocket:handlers>
-
-	<bean id="socketMessageHander" class="com.aaa.SocketMessageHander" />
-
-	<bean
-		class="org.springframework.web.socket.server.standard.ServletServerContainerFactoryBean">
-		<property name="maxTextMessageBufferSize" value="8192" />
-		<property name="maxBinaryMessageBufferSize" value="8192" />
-	</bean>
-	
-	<context:component-scan base-package="com.aaa.controller"></context:component-scan>
 
 </beans>

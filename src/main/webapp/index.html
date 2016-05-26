@@ -6,10 +6,9 @@
 </head>
 <body>测试websocket</body>
 <script type="text/javascript">
-	var webscoket = new WebSocket("ws://localhost:8080/demo.websocket/websocket1.do")
+	var webscoket = new WebSocket("ws://localhost:8080/demo.websocket/websocket.do")
 	webscoket.onopen = function(data) {
 		webscoket.send(1);
-		webscoket.close();
 	}
 
 	webscoket.onmessage = function(data) {

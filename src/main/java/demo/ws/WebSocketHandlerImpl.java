@@ -1,4 +1,4 @@
-package com.aaa;
+package demo.ws;
 
 
 import java.util.HashMap;
@@ -10,7 +10,7 @@ import org.springframework.web.socket.WebSocketHandler;
 import org.springframework.web.socket.WebSocketMessage;
 import org.springframework.web.socket.WebSocketSession;
 
-public class SocketMessageHander implements WebSocketHandler{
+public class WebSocketHandlerImpl implements WebSocketHandler{
 	
 	private final static Map<String, WebSocketSession> sessionList = new HashMap<String, WebSocketSession>();
 
